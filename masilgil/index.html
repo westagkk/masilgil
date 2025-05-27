@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마실길</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+
+  <!-- 라디오 탭 버튼 -->
+  <input type="radio" name="tab" id="tab-home" checked hidden />
+  <input type="radio" name="tab" id="tab-brand" hidden />
+  <input type="radio" name="tab" id="tab-tea" hidden />
+  <input type="radio" name="tab" id="tab-dessert" hidden />
+  <input type="radio" name="tab" id="tab-set" hidden />
+
+  <!-- 헤더 -->
+  <header class="main-header">
+    <div class="left-group">
+    <div class="color-bar">
+      <div class="color pink"></div>
+      <div class="color blue"></div>
+      <div class="color yellow"></div>
+      <div class="color green"></div>
+    </div>
+    <div class="logo">
+      <div class="logo">
+  <a href="index.html">
+    <img src="logo.svg" alt="마실길 로고" />
+  </a>
+</div>
+    </div>
+    <nav class="inline-menu">
+      <label for="tab-brand">브랜드</label>
+      <label for="tab-tea">전통차</label>
+      <label for="tab-dessert">다과</label>
+      <label for="tab-set">세트</label>
+    </nav>
+    </div>
+    <div class="right-group">
+      <div class="search-bar">
+        <input type="text" placeholder="상품을 검색해보세요" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="cart-icon">
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+      <div class="profile-icon">
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 슬라이더: 홈 탭에서만 표시 -->
+  <div class="promo-slider">
+    <img src="promo1.jpg" class="slide active" alt="프로모션 1" />
+    <img src="promo2.jpg" class="slide" alt="프로모션 2" />
+    <img src="promo3.jpg" class="slide" alt="프로모션 3" />
+  </div>
+
+  <!-- 콘텐츠 탭 -->
+  <main class="tab-area">
+    <section class="tab-content brand">
+      <h2>브랜드 설명</h2>
+      <p>브랜드에 대한 콘텐츠입니다.</p>
+    </section>
+
+    <section class="tab-content tea">
+  <div class="menu-container">
+    <div class="select-wrap">
+      <select id="sort-select" name="sort">
+        <option value="popular">인기순</option>
+        <option value="low-price">낮은 가격순</option>
+        <option value="recommended">추천순</option>
+      </select>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+    <div class="menu-grid">
+      <a class="menu-item" href="menu-detail-sipjeon.html">
+        <div class="image-wrapper">
+          <img src="sipjeon.jpeg" alt="십전대보탕 이미지">
+        </div>
+        <div class="menu-info">
+          <div class="menu-name">십전대보탕 (6개입)</div>
+          <div class="menu-price">₩50,000</div>
+        </div>
+      </a>
+
+      <a class="menu-item" href="menu-detail-daechu.html">
+        <div class="image-wrapper">
+          <img src="daechu.jpg" alt="대추차 이미지">
+        </div>
+        <div class="menu-info">
+          <div class="menu-name">대추차 (6개입)</div>
+          <div class="menu-price">₩50,000</div>
+        </div>
+      </a>
+
+      <a class="menu-item" href="menu-detail-hongsam.html">
+        <div class="image-wrapper">
+          <img src="hongsam.jpg" alt="홍삼차 이미지">
+        </div>
+        <div class="menu-info">
+          <div class="menu-name">홍삼차 (6개입)</div>
+          <div class="menu-price">₩50,000</div>
+        </div>
+      </a>
+
+      <a class="menu-item" href="menu-detail-omija.html">
+        <div class="image-wrapper">
+          <img src="omija.jpeg" alt="오미자차 이미지">
+        </div>
+        <div class="menu-info">
+          <div class="menu-name">오미자차 (6개입)</div>
+          <div class="menu-price">₩40,000</div>
+        </div>
+      </a>
+
+      <a class="menu-item" href="menu-detail-maesil.html">
+        <div class="image-wrapper">
+          <img src="maesil.jpg" alt="매실차 이미지">
+        </div>
+        <div class="menu-info">
+          <div class="menu-name">매실차 (6개입)</div>
+          <div class="menu-price">₩40,000</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+    <section class="tab-content dessert">
+      <h2>다과 설명</h2>
+      <p>다과에 대한 콘텐츠입니다.</p>
+    </section>
+    <section class="tab-content set">
+      <h2>세트 설명</h2>
+      <p>세트에 대한 콘텐츠입니다.</p>
+    </section>
+  </main>
+
+  <!-- 슬라이드 스크립트 -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.promo-slider .slide');
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+
+</body>
+</html>
