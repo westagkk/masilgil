@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마실길 - 메뉴 상세</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+
+<style>
+
+  .detail-page {
+  padding-top: 160px; /* 헤더 높이만큼 여백 줌 */
+}
+    .detail-wrapper {
+      display: flex;
+      gap: 40px;
+      max-width: 960px;
+      margin: 120px auto;
+      padding: 0 20px;
+    }
+    .detail-image {
+      width: 50%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .detail-text {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .detail-name {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .detail-price {
+      font-size: 20px;
+      color: #A0522D;
+      margin-bottom: 24px;
+    }
+    .quantity-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .quantity-box input {
+      width: 60px;
+      padding: 6px;
+      text-align: center;
+    }
+    .total-price {
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    .action-buttons button {
+      flex: 1;
+      padding: 12px;
+      border: 1;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .add-cart {
+      background-color: white;
+      border-color: black;
+    }
+    .buy-now {
+      background-color: black;
+      color: white;
+    }
+  </style>
+
+<!-- 헤더 -->
+  <header class="main-header">
+    <div class="left-group">
+    <div class="color-bar">
+      <div class="color pink"></div>
+      <div class="color blue"></div>
+      <div class="color yellow"></div>
+      <div class="color green"></div>
+    </div>
+    <div class="logo">
+      <a href="index.html"><img src="logo.svg" alt="마실길 로고" /></a>
+    </div>
+    <nav class="inline-menu">
+      <label for="tab-brand">브랜드</label>
+      <label for="tab-tea">전통차</label>
+      <label for="tab-dessert">다과</label>
+      <label for="tab-set">세트</label>
+    </nav>
+    </div>
+    <div class="right-group">
+      <div class="search-bar">
+        <input type="text" placeholder="상품을 검색해보세요" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="cart-icon">
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+      <div class="profile-icon">
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 상세 콘텐츠 -->
+
+<main class="detail-page">
+    <div class="detail-wrapper">
+      <img class="detail-image" src="sipjeon.jpeg" alt="십전대보탕 이미지" />
+      <div class="detail-text">
+        <h1 class="detail-name">십전대보탕 (6개입)</h1>
+        <p class="detail-price">₩50,000</p>
+
+        <div class="quantity-box">
+          <label for="quantity">수량:</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="updateTotal()" />
+        </div>
+
+        <p class="total-price" id="totalPrice">합계: ₩50,000</p>
+
+        <div class="action-buttons">
+          <button class="add-cart">장바구니 담기</button>
+          <button class="buy-now">구매하기</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const unitPrice = 50000;
+    function updateTotal() {
+      const qty = document.getElementById("quantity").value;
+      document.getElementById("totalPrice").textContent = `합계: ₩${(qty * unitPrice).toLocaleString()}`;
+    }
+  </script>
+
+</body>
+</html>
